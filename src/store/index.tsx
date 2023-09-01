@@ -85,7 +85,7 @@ export const TodoProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 export const useTodo = () => {
   const context = useContext(TodoContext);
   if (context === undefined) {
-    throw new Error('useTodo must be used within a TodoProvider');
+    throw new Error('useTodo must be used within TodoProvider');
   }
   return context;
 };
