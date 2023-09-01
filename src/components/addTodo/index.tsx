@@ -5,16 +5,12 @@ const AddTodo: React.FC = () => {
   const { dispatch } = useTodo();
   const [newTask, setNewTask] = useState<string>('');
 
-  const handleAddTask = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (newTask.trim() !== '') {
       dispatch({ type: 'ADD_TASK', payload: newTask });
       setNewTask('');
     }
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    handleAddTask();
   };
 
   const inputStyles = {
@@ -26,8 +22,6 @@ const AddTodo: React.FC = () => {
       },
     },
   };
-
-  
 
   return (
     <form onSubmit={handleSubmit}>
