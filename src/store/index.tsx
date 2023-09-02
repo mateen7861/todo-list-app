@@ -69,10 +69,7 @@ export const TodoProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [state, dispatch] = useReducer(todoReducer, initialState);
 
   useEffect(() => {
-    console.log("its called 231312",state)
-
         localStorage.setItem('tasks', JSON.stringify(state.tasks));
-   
   }, [state.tasks]);
 
   return (
